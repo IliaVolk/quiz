@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <ui:composition template="/faces/templates/welcome_template.xhtml">
+        <ui:define name="header">
+            <h1>Sign in</h1>
+        </ui:define>
+        <ui:define name="content">
+            <div id="sign_in">
+                <fieldset>
+                    <h:form>
+                        <h:panelGrid columns="3" cellpadding="5">
+                            <p:outputLabel for="username">Username: </p:outputLabel>
+                            <p:inputText id="username" value="#{signInBean.username}">
+                                <p:ajax event="keyup" delay="500" update="username_error"/>
+                            </p:inputText>
+                            <h:message id="username_error" for="username" styleClass="error"/>
+                            <p:commandButton action="lobby?faces-redirect=true" value="Submit" icon="ui-icon-check" ajax="false"/>
+
+                        </h:panelGrid>
+                    </h:form>
+                </fieldset>
+            </div>
+        </ui:define>
+        <ui:define name="footer">
+            <div id="footer">
+                footer
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+</html>
